@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>História de Vida - Vera Azevedo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-top">
+            <div class="logo-group">
+                <img src="assets/Imagem1.jpeg" alt="Vera" class="logo-img">
+                <img src="assets/Imagem2.jpg" alt="Logo" class="logo-img">
+            </div>
+            <div class="header-title">
+                <h1>AÇÃO Solidária 💖</h1>
+                <p>Em Prol dos Primeiros Passinhos de:<br><strong>VERA AZEVEDO</strong></p>
+            </div>
+            <img src="assets/Imagem3.png" alt="QR Code" class="qr-code">
+        </div>
+
+        <nav>
+            <div class="nav-links">
+                <span id="visitor-counter" class="nav-btn" style="background: #555; display: flex; align-items: center; gap: 5px; padding: 2px 15px;">
+                    Visitantes: 
+                    <img src="https://counter.onitla.com.br/counter.php?id=ajudeavera" alt="Contador" style="height: 25px; vertical-align: middle;">
+                </span>
+                <button id="music-toggle" class="nav-btn" style="cursor: pointer; border: none;">Parar Música 🔇</button>
+                <a href="index.html" class="nav-btn">Home</a>
+                <a href="historia.html" class="nav-btn">História de Vida</a>
+                <a href="parceiros.html" class="nav-btn">Doadores ou Parceiros</a>
+                <a href="premiacao.html" class="nav-btn">Premiação</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h2 class="section-title">História de Vida</h2>
+        
+        <div style="text-align: center; margin-bottom: 30px;">
+            <img src="assets/Imagem1.jpeg" alt="Vera Pequena" style="max-width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            <p style="margin-top: 15px; font-style: italic;">"Cada passo é uma vitória, cada sorriso é uma esperança."</p>
+        </div>
+
+        <div class="info-box">
+            <p>Esta página contará a história de vida da Vera, desde o seu nascimento, os desafios enfrentados e a jornada em busca dos seus primeiros passinhos.</p>
+            <p style="margin-top: 10px;">Vera é um exemplo de superação e força, e sua ajuda é fundamental para que ela continue evoluindo em seu tratamento.</p>
+        </div>
+
+        <div style="margin-top: 30px;">
+            <h3>Nascimento e Primeiros Desafios</h3>
+            <p style="margin-top: 10px;">[Espaço reservado para o texto detalhado da história da Vera]</p>
+            
+            <h3 style="margin-top: 20px;">A Campanha pelos Primeiros Passinhos</h3>
+            <p style="margin-top: 10px;">[Espaço reservado para contar sobre a necessidade do tratamento atual]</p>
+        </div>
+    </main>
+
+    <audio id="bg-music" loop>
+        <source src="assets/musica.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const music = document.getElementById('bg-music');
+        const toggleBtn = document.getElementById('music-toggle');
+        
+        function startMusic() {
+            music.play().then(() => {
+                toggleBtn.innerText = "Parar Música 🔇";
+            }).catch(e => {
+                console.log("Aguardando interação para tocar música.");
+            });
+        }
+
+        window.addEventListener('load', startMusic);
+        document.body.addEventListener('click', () => {
+            if (music.paused && toggleBtn.innerText.includes("Parar")) {
+                startMusic();
+            }
+        }, { once: false });
+
+        toggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (music.paused) {
+                music.play();
+                toggleBtn.innerText = "Parar Música 🔇";
+            } else {
+                music.pause();
+                toggleBtn.innerText = "Tocar Música 🎵";
+            }
+        });
+
+        // Contador global automático via imagem dinâmica (Hits)
+    </script>
+</body>
+</html>
