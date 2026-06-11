@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AÇÃO Solidária 💖 - Vera Azevedo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-top">
+            <div class="logo-group">
+                <img src="assets/Imagem1.jpeg" alt="Vera" class="logo-img">
+                <img src="assets/Imagem2.jpg" alt="Logo" class="logo-img">
+            </div>
+            <div class="header-title">
+                <h1>AÇÃO Solidária 💖</h1>
+                <p>Em Prol dos Primeiros Passinhos de:<br><strong>VERA AZEVEDO</strong></p>
+            </div>
+            <img src="assets/Imagem3.png" alt="QR Code" class="qr-code">
+        </div>
+
+        <nav>
+            <div class="nav-links">
+                <span id="visitor-counter" class="nav-btn" style="background: #555; display: flex; align-items: center; gap: 5px; padding: 2px 15px;">
+                    Visitantes: 
+                    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fajudeavera.github.io&count_bg=%23D81B60&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false" alt="Contador" style="height: 20px;">
+                </span>
+                <button id="music-toggle" class="nav-btn" style="cursor: pointer; border: none;">Parar Música 🔇</button>
+                <a href="index.html" class="nav-btn">Home</a>
+                <a href="historia.html" class="nav-btn">História de Vida</a>
+                <a href="parceiros.html" class="nav-btn">Doadores ou Parceiros</a>
+                <a href="premiacao.html" class="nav-btn">Premiação</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="campaign-container">
+            <img src="assets/Imagem5.jpeg" alt="Campanha Fixa" class="campaign-img">
+            <div class="campaign-text">
+                <h2>AÇÃO Solidária 💖</h2>
+                <p>Em Prol dos Primeiros Passinhos de:<br><strong>VERA AZEVEDO</strong></p><br>
+                
+                <div class="info-box">
+                    <p><strong>JUNTE LATINHAS</strong><br>e ajude Vera em seu tratamento! 💖</p>
+                    <p style="margin-top: 10px;"><strong><br>PONTOS DE COLETA:</strong><br>
+                    🍨 Sorveteria Du Vovô na Feira 304 Sul<br>
+                    Todas as 🗓️ Terças e Sextas!</p>
+                    <p>🚩 <a href="https://www.instagram.com/duvovosorveteria" target="_blank" style="color: #d81b60; text-decoration: none;">instagram.com/duvovosorveteria</a></p>
+                </div><br>
+
+                <p>☎️ Telefone/Whatsapp: 63 99291-0133 💖</p><br>
+                <p>💵 Chave PIX: <strong>ajudeaveraa@gmail.com</strong></p>
+            </div>
+        </section>
+
+        <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
+
+        <section style="text-align: center;">
+            <h2 class="section-title">⚽🇧🇷 O Bolão Solidário da VERA chegou! 🇧🇷⚽</h2>
+            
+            <div class="bolao-container">
+                <img src="assets/Imagem6.jpeg" alt="Bolão 1" class="bolao-img">
+                <img src="assets/Imagem7.jpeg" alt="Bolão 2" class="bolao-img">
+            </div>
+
+            <div class="info-box" style="text-align: left;">
+                <p>Chegou a hora de testar sua sorte e seu conhecimento sobre futebol!</p>
+                <p>📅 <strong>Brasil x Marrocos</strong><br>🕖 13 de junho, às 19h</p>
+                <p>💰 <strong>Valor do palpite: R$ 10,00</strong></p>
+                <p>🍀 Quanto mais apostas você fizer, maiores serão suas chances de ganhar e ajudar a Vera dar os seus passinhos.</p>
+            </div>
+
+            <div style="text-align: left; margin-top: 20px;">
+                <p>✅ Faça seu(s) palpite(s)</p>
+                <p>✅ Realize o pagamento via Pix</p>
+                <p>✅ Concorra ao prêmio</p>
+                <p>✅ Atenção as regras</p>
+                <p>📌 Somente palpites pagos estarão valendo.</p>
+                <p style="margin-top: 15px;">💳 <strong>Pix: ajudeaveraa@gmail.com</strong><br>Vera Azevedo</p>
+                <p>🔖 <a href="https://www.instagram.com/veraeseuspassos" target="_blank" style="color: #d81b60; text-decoration: none;">instagram.com/veraeseuspassos</a></p>
+            </div>
+
+            <p style="margin-top: 30px; font-weight: bold;">⚽ Chame os amigos, participe e torça pela nossa Seleção!</p>
+            <p>Obrigada pela participação e boa sorte a todos! 🇧🇷🏆🍀</p>
+        </section>
+    </main>
+
+    <audio id="bg-music" loop>
+        <source src="assets/musica.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const music = document.getElementById('bg-music');
+        const toggleBtn = document.getElementById('music-toggle');
+        
+        function startMusic() {
+            music.play().then(() => {
+                toggleBtn.innerText = "Parar Música 🔇";
+            }).catch(e => {
+                console.log("Aguardando interação para tocar música.");
+            });
+        }
+
+        window.addEventListener('load', startMusic);
+        document.body.addEventListener('click', () => {
+            if (music.paused && toggleBtn.innerText.includes("Parar")) {
+                startMusic();
+            }
+        }, { once: false });
+
+        toggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (music.paused) {
+                music.play();
+                toggleBtn.innerText = "Parar Música 🔇";
+            } else {
+                music.pause();
+                toggleBtn.innerText = "Tocar Música 🎵";
+            }
+        });
+    </script>
+</body>
+</html>
