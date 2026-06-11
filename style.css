@@ -1,213 +1,109 @@
-/* Configurações Gerais */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premiação - Vera Azevedo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-body {
-    background-color: #ffe4e1; /* Rosa claro */
-    color: #333;
-    padding-top: 180px; /* Ajustado para 180px conforme solicitado */
-}
+    <header>
+        <div class="header-top">
+            <div class="logo-group">
+                <img src="assets/Imagem1.jpeg" alt="Vera" class="logo-img">
+                <img src="assets/Imagem2.jpg" alt="Logo" class="logo-img">
+            </div>
+            <div class="header-title">
+                <h1>AÇÃO Solidária 💖</h1>
+                <p>Em Prol dos Primeiros Passinhos de:<br><strong>VERA AZEVEDO</strong></p>
+            </div>
+            <img src="assets/Imagem3.png" alt="QR Code" class="qr-code">
+        </div>
 
-/* Cabeçalho Fixo */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #fff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    z-index: 1000;
-    padding: 0px 20px;
-}
+        <nav>
+            <div class="nav-links">
+                <span id="visitor-counter" class="nav-btn" style="background: #555; display: flex; align-items: center; gap: 5px; padding: 2px 15px;">
+                    Visitantes: 
+                    <img src="https://counter.onitla.com.br/counter.php?id=ajudeavera" alt="Contador" style="height: 25px; vertical-align: middle;">!
+                </span>
+                <button id="music-toggle" class="nav-btn" style="cursor: pointer; border: none;">Parar Música 🔇</button>
+                <a href="index.html" class="nav-btn">Home</a>
+                <a href="historia.html" class="nav-btn">História de Vida</a>
+                <a href="parceiros.html" class="nav-btn">Doadores ou Parceiros</a>
+                <a href="premiacao.html" class="nav-btn">Premiação</a>
+            </div>
+        </nav>
+    </header>
 
-.header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
+    <main>
+        <h2 class="section-title">Premiação do Bolão</h2>
+        
+        <div class="info-box" style="text-align: center;">
+            <p>Confira aqui os ganhadores do nosso Bolão Solidário!</p>
+            <p style="margin-top: 10px;">Agradecemos a todos pela participação e por ajudarem a Vera.</p>
+        </div>
 
-.logo-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+        <div class="partners-grid">
+            <!-- Espaços para fotos dos premiados -->
+            <div class="partner-card">
+                <div style="height: 200px; background: #fff0f5; display: flex; align-items: center; justify-content: center; border-radius: 5px; margin-bottom: 10px; border: 2px dashed #d81b60;">
+                    <span style="color: #d81b60;">Foto do Ganhador</span>
+                </div>
+                <p><strong>1º Lugar</strong><br>Nome do Premiado</p>
+            </div>
 
-.logo-img {
-    height: 120px; /* Mantendo sua alteração */
-    width: auto;
-    object-fit: contain;
-}
+            <div class="partner-card">
+                <div style="height: 200px; background: #fff0f5; display: flex; align-items: center; justify-content: center; border-radius: 5px; margin-bottom: 10px; border: 2px dashed #d81b60;">
+                    <span style="color: #d81b60;">Foto do Ganhador</span>
+                </div>
+                <p><strong>2º Lugar</strong><br>Nome do Premiado</p>
+            </div>
 
-.header-title {
-    text-align: center;
-    flex-grow: 1;
-}
+            <div class="partner-card">
+                <div style="height: 200px; background: #fff0f5; display: flex; align-items: center; justify-content: center; border-radius: 5px; margin-bottom: 10px; border: 2px dashed #d81b60;">
+                    <span style="color: #d81b60;">Foto do Ganhador</span>
+                </div>
+                <p><strong>3º Lugar</strong><br>Nome do Premiado</p>
+            </div>
+        </div>
+    </main>
 
-.header-title h1 {
-    color: #d81b60;
-    font-size: 4.0rem; /* Mantendo seu título gigante */
-    margin-bottom: -8px; /* Mantendo sua aproximação */
-}
+    <audio id="bg-music" loop>
+        <source src="assets/musica.mp3" type="audio/mpeg">
+    </audio>
 
-.header-title p {
-    font-weight: bold;
-    color: #555;
-}
+    <script>
+        const music = document.getElementById('bg-music');
+        const toggleBtn = document.getElementById('music-toggle');
+        
+        function startMusic() {
+            music.play().then(() => {
+                toggleBtn.innerText = "Parar Música 🔇";
+            }).catch(e => {
+                console.log("Aguardando interação para tocar música.");
+            });
+        }
 
-.qr-code {
-    height: 130px; /* Mantendo sua alteração */
-}
+        window.addEventListener('load', startMusic);
+        document.body.addEventListener('click', () => {
+            if (music.paused && toggleBtn.innerText.includes("Parar")) {
+                startMusic();
+            }
+        }, { once: false });
 
-/* Navegação */
-nav {
-    border-top: 1px solid #eee;
-    margin-top: 1px;
-    padding-top: 1px;
-    text-align: center;
-}
+        toggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (music.paused) {
+                music.play();
+                toggleBtn.innerText = "Parar Música 🔇";
+            } else {
+                music.pause();
+                toggleBtn.innerText = "Tocar Música 🎵";
+            }
+        });
 
-.nav-links {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    padding: 5px 0;
-}
-
-.nav-btn {
-    background-color: #d81b60;
-    color: white;
-    padding: 8px 15px; /* Ajustado para melhor clique */
-    text-decoration: none;
-    border-radius: 20px;
-    font-weight: bold;
-    font-size: 1.0rem;
-    transition: background 0.3s;
-    border: none;
-    cursor: pointer;
-}
-
-.nav-btn:hover {
-    background-color: #ad1457;
-}
-
-/* Conteúdo Principal */
-main {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-}
-
-.section-title {
-    color: #d81b60;
-    text-align: center;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #ffe4e1;
-    padding-bottom: 10px;
-}
-
-/* Estilo Home */
-.campaign-container {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 40px;
-    align-items: flex-start;
-}
-
-.campaign-img {
-    width: 40%;
-    border-radius: 10px;
-}
-
-.campaign-text {
-    width: 60%;
-}
-
-.campaign-text h2 {
-    color: #d81b60;
-    margin-bottom: 5px; /* Aproximado conforme solicitado anteriormente */
-}
-
-.info-box {
-    background-color: #fff0f5;
-    padding: 15px;
-    border-left: 5px solid #d81b60;
-    margin: 15px 0;
-}
-
-.bolao-container {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin: 20px 0;
-}
-
-.bolao-img {
-    width: 45%;
-    border-radius: 10px;
-}
-
-/* Grid de Doadores */
-.partners-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.partner-card {
-    text-align: center;
-    border: 1px solid #eee;
-    padding: 10px;
-    border-radius: 8px;
-}
-
-.partner-card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    body {
-        padding-top: 450px; /* Aumentado para o título gigante no mobile */
-    }
-    
-    .header-title h1 {
-        font-size: 2.5rem; /* Reduzido no mobile para não quebrar tudo */
-    }
-
-    .header-top {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .campaign-container {
-        flex-direction: column;
-    }
-    
-    .campaign-img, .campaign-text {
-        width: 100%;
-    }
-    
-    .bolao-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .bolao-img {
-        width: 100%;
-    }
-}
+        // Contador global automático via imagem dinâmica (Hits)
+    </script>
+</body>
+</html>
