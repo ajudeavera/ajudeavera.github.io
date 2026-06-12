@@ -39,7 +39,7 @@ header {
 }
 
 .logo-img {
-    height: 120px; /* Mantendo sua alteração */
+    height: 60px; /* Mantendo sua alteração * 120/
     width: auto;
     object-fit: contain;
 }
@@ -51,8 +51,8 @@ header {
 
 .header-title h1 {
     color: #d81b60;
-    font-size: 4.0rem; /* Mantendo seu título gigante */
-    margin-bottom: -8px; /* Mantendo sua aproximação */
+    font-size: 1.5rem; /* Mantendo seu título gigante * 4/
+    margin-bottom: 5px; /* Mantendo sua aproximação * -8/
 }
 
 .header-title p {
@@ -61,14 +61,14 @@ header {
 }
 
 .qr-code {
-    height: 130px; /* Mantendo sua alteração */
+    height: 80px; /* Mantendo sua alteração * 130/
 }
 
 /* Navegação */
 nav {
     border-top: 1px solid #eee;
-    margin-top: 1px;
-    padding-top: 1px;
+    margin-top: 10px; /* 1*/
+    padding-top: 10px; /* 1*/
     text-align: center;
 }
 
@@ -77,7 +77,7 @@ nav {
     justify-content: center;
     gap: 15px;
     flex-wrap: wrap;
-    padding: 5px 0;
+    padding: 5px 0; /* */
 }
 
 .nav-btn {
@@ -87,7 +87,7 @@ nav {
     text-decoration: none;
     border-radius: 20px;
     font-weight: bold;
-    font-size: 1.0rem;
+    font-size: 0.9rem; /* 1.0*/
     transition: background 0.3s;
     border: none;
     cursor: pointer;
@@ -182,7 +182,7 @@ main {
 /* Responsividade */
 @media (max-width: 768px) {
     body {
-        padding-top: 450px; /* Aumentado para o título gigante no mobile */
+        padding-top: 220px; /* Aumentado para o título gigante no mobile * 450/
     }
     
     .header-title h1 {
