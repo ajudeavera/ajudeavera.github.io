@@ -7,9 +7,9 @@
 }
 
 body {
-    background-color: #ffe4e1; /* Rosa claro */
+    background-color: #ffe4e1;
     color: #333;
-    padding-top: 180px; /* Ajustado para 180px conforme solicitado */
+    padding-top: 180px;
 }
 
 /* Cabeçalho Fixo */
@@ -39,7 +39,7 @@ header {
 }
 
 .logo-img {
-    height: 60px; /* Mantendo sua alteração * 120/
+    height: 120px;
     width: auto;
     object-fit: contain;
 }
@@ -51,8 +51,8 @@ header {
 
 .header-title h1 {
     color: #d81b60;
-    font-size: 1.5rem; /* Mantendo seu título gigante * 4/
-    margin-bottom: 5px; /* Mantendo sua aproximação * -8/
+    font-size: 4.0rem;
+    margin-bottom: -8px;
 }
 
 .header-title p {
@@ -61,14 +61,14 @@ header {
 }
 
 .qr-code {
-    height: 80px; /* Mantendo sua alteração * 130/
+    height: 130px;
 }
 
 /* Navegação */
 nav {
     border-top: 1px solid #eee;
-    margin-top: 10px; /* 1*/
-    padding-top: 10px; /* 1*/
+    margin-top: 1px;
+    padding-top: 1px;
     text-align: center;
 }
 
@@ -77,17 +77,17 @@ nav {
     justify-content: center;
     gap: 15px;
     flex-wrap: wrap;
-    padding: 5px 0; /* */
+    padding: 5px 0;
 }
 
 .nav-btn {
     background-color: #d81b60;
     color: white;
-    padding: 8px 15px; /* Ajustado para melhor clique */
+    padding: 8px 15px;
     text-decoration: none;
     border-radius: 20px;
     font-weight: bold;
-    font-size: 0.9rem; /* 1.0*/
+    font-size: 1.0rem;
     transition: background 0.3s;
     border: none;
     cursor: pointer;
@@ -134,7 +134,7 @@ main {
 
 .campaign-text h2 {
     color: #d81b60;
-    margin-bottom: 5px; /* Aproximado conforme solicitado anteriormente */
+    margin-bottom: 5px;
 }
 
 .info-box {
@@ -179,34 +179,65 @@ main {
     margin-bottom: 10px;
 }
 
-/* Responsividade */
+/* Responsividade Mobile */
 @media (max-width: 768px) {
+
     body {
-        padding-top: 220px; /* Aumentado para o título gigante no mobile * 450/
-    }
-    
-    .header-title h1 {
-        font-size: 2.5rem; /* Reduzido no mobile para não quebrar tudo */
+        padding-top: 220px; /* Reduzido — cabeçalho menor no mobile */
     }
 
+    /* Cabeçalho empilhado no mobile */
     .header-top {
-        flex-direction: column;
-        gap: 10px;
+        flex-direction: row; /* mantém na mesma linha mas reduz tudo */
+        align-items: center;
+        gap: 5px;
+        padding: 5px 0;
     }
-    
+
+    /* Imagens 1 e 2 menores no mobile */
+    .logo-img {
+        height: 55px;
+    }
+
+    /* Título menor no mobile */
+    .header-title h1 {
+        font-size: 1.4rem;
+        margin-bottom: -4px;
+    }
+
+    .header-title p {
+        font-size: 0.75rem;
+    }
+
+    /* QR Code menor no mobile */
+    .qr-code {
+        height: 60px;
+    }
+
+    /* Botões do menu menores */
+    .nav-btn {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+
+    .nav-links {
+        gap: 8px;
+    }
+
+    /* Conteúdo principal */
     .campaign-container {
         flex-direction: column;
     }
-    
+
     .campaign-img, .campaign-text {
         width: 100%;
     }
-    
+
     .bolao-container {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .bolao-img {
         width: 100%;
     }
