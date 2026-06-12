@@ -81,9 +81,9 @@ nav {
 }
 
 .nav-btn {
-    background-color: #d81b60;
+    background-color: #555;
     color: white;
-    padding: 8px 15px;
+    padding: 8px 12px;
     text-decoration: none;
     border-radius: 20px;
     font-weight: bold;
@@ -91,6 +91,11 @@ nav {
     transition: background 0.3s;
     border: none;
     cursor: pointer;
+}
+
+/* Estilo para o botão do menu da página atual */
+.nav-btn.active {
+    background-color: #d81b60; /* Cor rosa para o botão ativo */
 }
 
 .nav-btn:hover {
