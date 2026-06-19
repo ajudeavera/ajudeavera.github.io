@@ -42,6 +42,13 @@ header {
     height: 120px;
     width: auto;
     object-fit: contain;
+    /* Efeito de zoom para imagens do cabeçalho */
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo-img:hover {
+    transform: scale(1.15); /* Zoom maior para cabeçalho */
+    cursor: pointer;
 }
 
 .header-title {
@@ -62,7 +69,35 @@ header {
 
 .qr-code {
     height: 130px;
+    /* Efeito de zoom para imagens do cabeçalho */
+    transition: transform 0.3s ease-in-out;
 }
+
+.qr-code:hover {
+    transform: scale(1.15); /* Zoom maior para cabeçalho */
+    cursor: pointer;
+}
+
+/* NOVO: Efeito de zoom para imagens dentro do MAIN (geral) */
+main img {
+    transition: transform 0.3s ease-in-out;
+}
+
+main img:hover {
+    transform: scale(1.05); /* Zoom discreto para imagens do main (padrão) */
+    cursor: pointer;
+}
+
+/* NOVO: Efeito de zoom para imagens de parceiros/premiação (mais específico) */
+.partner-card img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.partner-card img:hover {
+    transform: scale(1.99); /* Zoom bem maior para parceiros/premiação */
+    cursor: pointer;
+}
+
 
 /* Navegação */
 nav {
@@ -178,7 +213,7 @@ main {
 
 .partner-card img {
     width: 100%;
-    height: 150px;
+    height: 200px; /* Mantido para o layout do card */
     object-fit: contain;
     border-radius: 5px;
     margin-bottom: 10px;

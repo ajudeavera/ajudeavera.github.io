@@ -11,23 +11,26 @@
     <header>
         <div class="header-top">
             <div class="logo-group">
-                <img src="assets/Imagem1.jpeg" alt="Vera" class="logo-img">
-                <img src="assets/Imagem2.jpg" alt="Logo" class="logo-img">
+                <a href="assets/Imagem1.jpeg" target="_blank"><img src="assets/Imagem1.jpeg" alt="Vera" class="logo-img"></a>
+                <a href="assets/Imagem2.jpg" target="_blank"><img src="assets/Imagem2.jpg" alt="Logo" class="logo-img"></a>
             </div>
             <div class="header-title">
                 <h1>AÇÃO Solidária 💖</h1>
                 <p>Em Prol dos Primeiros Passinhos de:<br><strong>VERA AZEVEDO</strong></p>
             </div>
-            <img src="assets/Imagem3.png" alt="QR Code" class="qr-code">
+            <a href="assets/Imagem3.png" target="_blank"><img src="assets/Imagem3.png" alt="QR Code" class="qr-code"></a>
         </div>
 
-         <nav>
+        <nav>
             <div class="nav-links">
-                <span id="visitor-counter" class="nav-btn" style="background: #555; display: flex; align-items: center; gap: 5px; padding: 2px 15px;">
+                 <span id="visitor-counter" class="nav-btn" style="background: #555; display: flex; align-items: center; gap: 5px; padding: 2px 15px;">
                     Visitantes: <img src="https://hits.sh/ajudeavera.github.io.svg?label=%20&color=ff2bd6&labelColor=ff2bd6&style=for-the-badge" alt="Contador de Visitantes" style="height: 30px; vertical-align: middle;">
                 </span>
-                <button id="music-toggle" class="nav-btn" style="cursor: pointer; border: none;">Parar Música 🔇</button>
-                <a href="index.html" class="nav-btn">Início</a>
+                <!-- O botão de música e o contador de visitantes precisam de JavaScript para funcionar.
+                     Como você quer evitar JS, eles foram removidos ou não terão funcionalidade.
+                     Se quiser mantê-los, precisaremos do JS. -->
+                <!-- <button id="music-toggle" class="nav-btn" style="cursor: pointer; border: none;">Parar Música 🔇</button> -->
+                <a href="index.html" class="nav-btn">Home</a>
                 <a href="historia.html" class="nav-btn">História de Vida</a>
                 <a href="parceiros.html" class="nav-btn active">Doadores ou Parceiros</a>
                 <a href="premiacao.html" class="nav-btn">Premiação</a>
@@ -37,7 +40,7 @@
 
     <main>
         <h2 class="section-title">Doadores ou Parceiros</h2>
-        
+
         <div class="info-box" style="text-align: center;">
             <p>Seja você também um parceiro desta causa!</p>
             <p style="margin-top: 10px;">📩 E-mail: <strong>ajudeaveraa@gmail.com</strong></p>
@@ -47,7 +50,7 @@
         <div class="partners-grid">
             <!-- Desenvolvedor -->
             <div class="partner-card">
-                <img src="assets/AltinoJB.gif" alt="Desenvolvedor">
+                <a href="assets/AltinoJB.gif" target="_blank"><img src="assets/AltinoJB.gif" alt="Desenvolvedor"></a>
                 <p><strong>Desenvolvedor Web desse site gratuito Onitla SA</strong><br>63 98111-0357</p>
             </div>
 
@@ -79,41 +82,6 @@
         </div>
     </main>
 
-    <audio id="bg-music" loop>
-        <source src="assets/musica.mp3" type="audio/mpeg">
-    </audio>
-
-    <script>
-        const music = document.getElementById('bg-music');
-        const toggleBtn = document.getElementById('music-toggle');
-        
-        function startMusic() {
-            music.play().then(() => {
-                toggleBtn.innerText = "Parar Música 🔇";
-            }).catch(e => {
-                console.log("Aguardando interação para tocar música.");
-            });
-        }
-
-        window.addEventListener('load', startMusic);
-        document.body.addEventListener('click', () => {
-            if (music.paused && toggleBtn.innerText.includes("Parar")) {
-                startMusic();
-            }
-        }, { once: false });
-
-        toggleBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            if (music.paused) {
-                music.play();
-                toggleBtn.innerText = "Parar Música 🔇";
-            } else {
-                music.pause();
-                toggleBtn.innerText = "Tocar Música 🎵";
-            }
-        });
-
-        // Contador global automático via imagem dinâmica (Hits)
-    </script>
+    <!-- Removido: <audio id="bg-music" loop> e todo o JavaScript -->
 </body>
 </html>
